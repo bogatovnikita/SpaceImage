@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/dateSelectionFragment">
+
+    <fragment
+        android:id="@+id/dateSelectionFragment"
+        tools:layout="@layout/fragment_date_selection"
+        android:name="com.elephant.spaceimage.ui.screens.date_selection.DateSelectionFragment"
+        android:label="DateSelectionFragment" >
+        <action
+            android:id="@+id/action_dateSelectionFragment_to_pictureDayFragment"
+            app:destination="@id/pictureDayFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pictureDayFragment"
+        tools:layout="@layout/fragment_picture_day"
+        android:name="com.elephant.spaceimage.ui.screens.picture_day.PictureDayFragment"
+        android:label="PictureDayFragment" >
+        <action
+            android:id="@+id/action_pictureDayFragment_to_descriptionPictureFragment"
+            app:destination="@id/descriptionPictureFragment" />
+        <argument
+            android:name="choice_date"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_description_picture"
+        android:id="@+id/descriptionPictureFragment"
+        android:name="com.elephant.spaceimage.ui.screens.description_picture.DescriptionPictureFragment"
+        android:label="DescriptionPictureFragment" />
+</navigation>

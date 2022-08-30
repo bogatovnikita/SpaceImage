@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Space image</string>
+    <string name="choose_a_date_to_view_the_best_picture_for_according_to_nasa">Choose a date to view the best picture for, according to NASA</string>
+    <string name="calendar">Calendar</string>
+    <string name="selected_date">Selected date</string>
+
 </resources>
