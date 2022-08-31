@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import com.elephant.spaceimage.R
 import com.elephant.spaceimage.databinding.FragmentSplashBinding
 import com.elephant.spaceimage.ui.screens.base.BaseFragment
 import com.elephant.spaceimage.ui.screens.main.MainActivity
@@ -37,5 +38,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         val intent = Intent(requireContext(), MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)
+        requireActivity().overridePendingTransition(R.anim.fadein, R.anim.fadeout)
     }
 }

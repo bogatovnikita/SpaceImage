@@ -1,10 +1,7 @@
 package com.elephant.spaceimage.data.nasa_api
 
 import com.elephant.spaceimage.App
-import com.elephant.spaceimage.BuildConfig
 import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.gson.GsonConverterFactory
 
 class NasaApiImplementation {

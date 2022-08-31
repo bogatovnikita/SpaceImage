@@ -28,6 +28,7 @@
         android:elevation="10dp"
         android:text="@string/calendar"
         android:textAllCaps="false"
+        android:textSize="@dimen/_15ssp"
         android:textColor="@color/text_splash"
         app:icon="@drawable/ic_baseline_calendar_month_24"
         app:iconTint="@color/text_splash"

@@ -3,9 +3,8 @@ package com.elephant.spaceimage.ui.screens.picture_day
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.navArgs
-import coil.load
+import com.bumptech.glide.Glide
 import com.elephant.spaceimage.R
 import com.elephant.spaceimage.databinding.FragmentPictureDayBinding
 import com.elephant.spaceimage.ui.screens.base.BaseFragment
@@ -19,11 +18,10 @@ class PictureDayFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initObservers()
-        initClickButton()
-
+        initClickRefreshButton()
     }
 
-    private fun initClickButton() {
+    private fun initClickRefreshButton() {
         binding.refreshBtn.setOnClickListener {
             binding.progressBar.isVisible = true
             binding.refreshBtn.isVisible = false
@@ -38,19 +36,19 @@ class PictureDayFragment :
                 binding.progressBar.isVisible = false
                 binding.refreshBtn.isVisible = true
             }
-            if (state.hdUrl.isNotEmpty()) {
-                binding.pictureIv.load(state.hdUrl) {
-                    //TODO красивый плейсхолдер
-                    placeholder(R.drawable.placeholder)
-                    crossfade(2000)
-                }
-            } else {
-                binding.pictureIv.load(state.url){
-
-
-                }
+            if (state.hdUrl.isNotEmpty() && state.isLoading) {
+                initPictureForGlide(state.hdUrl)
             }
-
+            if (state.hdUrl.isEmpty() && state.isLoading) {
+                initPictureForGlide(state.url)
+            }
         }
+    }
+
+    private fun initPictureForGlide(url: String) {
+        Glide.with(requireActivity())
+            .load(url)
+            .placeholder(R.drawable.ic_no_image)
+            .into(binding.pictureIv)
     }
 }

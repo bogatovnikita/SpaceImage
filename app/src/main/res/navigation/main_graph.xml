@@ -7,28 +7,36 @@
 
     <fragment
         android:id="@+id/dateSelectionFragment"
-        tools:layout="@layout/fragment_date_selection"
         android:name="com.elephant.spaceimage.ui.screens.date_selection.DateSelectionFragment"
-        android:label="DateSelectionFragment" >
+        android:label="DateSelectionFragment"
+        tools:layout="@layout/fragment_date_selection">
         <action
             android:id="@+id/action_dateSelectionFragment_to_pictureDayFragment"
-            app:destination="@id/pictureDayFragment" />
+            app:destination="@id/pictureDayFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
     </fragment>
     <fragment
         android:id="@+id/pictureDayFragment"
-        tools:layout="@layout/fragment_picture_day"
         android:name="com.elephant.spaceimage.ui.screens.picture_day.PictureDayFragment"
-        android:label="PictureDayFragment" >
+        android:label="PictureDayFragment"
+        tools:layout="@layout/fragment_picture_day">
         <action
             android:id="@+id/action_pictureDayFragment_to_descriptionPictureFragment"
-            app:destination="@id/descriptionPictureFragment" />
+            app:destination="@id/descriptionPictureFragment"
+            app:enterAnim="@anim/slide_left"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim"
+            app:popExitAnim="@anim/slide_right" />
         <argument
             android:name="choice_date"
             app:argType="string" />
     </fragment>
     <fragment
-        tools:layout="@layout/fragment_description_picture"
         android:id="@+id/descriptionPictureFragment"
         android:name="com.elephant.spaceimage.ui.screens.description_picture.DescriptionPictureFragment"
-        android:label="DescriptionPictureFragment" />
+        android:label="DescriptionPictureFragment"
+        tools:layout="@layout/fragment_description_picture" />
 </navigation>
