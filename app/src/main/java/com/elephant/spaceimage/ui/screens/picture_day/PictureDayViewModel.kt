@@ -36,7 +36,7 @@ class PictureDayViewModel(private val choiceDate: String) : ViewModel() {
                         isLoading = true,
                         description = it.explanation,
                         hdUrl = it.hdurl,
-                        url = it.hdurl,
+                        url = it.url,
                         date = it.date,
                         title = it.title,
                         mediaType = it.mediaType

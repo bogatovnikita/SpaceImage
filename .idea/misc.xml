@@ -6,6 +6,7 @@
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/background_gradient_splash.xml" value="0.2935" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/bakcground_splash.xml" value="0.2935" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.2935" />
+        <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/ic_baseline_wallpaper_24.xml" value="0.2935" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/ic_no_photo.xml" value="0.2935" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/drawable/no_photo.xml" value="0.2935" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/font/amaranth.xml" value="0.23020833333333332" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/layout/fragment_description_picture.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/layout/fragment_picture_day.xml" value="0.2" />
         <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/layout/fragment_splash.xml" value="0.37864583333333335" />
+        <entry key="..\:/Users/bogat/AndroidStudioProjects/Spaceimage/app/src/main/res/menu/menu.xml" value="0.37864583333333335" />
       </map>
     </option>
   </component>

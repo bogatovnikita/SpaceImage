@@ -4,6 +4,7 @@
     package="com.elephant.spaceimage">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".App"
@@ -16,8 +17,8 @@
         tools:targetApi="31">
         <activity
             android:name=".ui.screens.splash.SplashActivity"
-            android:theme="@style/SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/share_picture"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share_picture"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/screensaver"
+        android:icon="@drawable/ic_baseline_wallpaper_24"
+        android:title="@string/install_screensaver"
+        app:showAsAction="ifRoom" />
+</menu>
