@@ -6,11 +6,11 @@ import androidx.navigation.fragment.findNavController
 import com.elephant.spaceimage.R
 import com.elephant.spaceimage.databinding.FragmentDateSelectionBinding
 import com.elephant.spaceimage.ui.screens.base.BaseFragment
-import com.google.android.material.datepicker.CalendarConstraints
-import com.google.android.material.datepicker.DateValidatorPointForward
-import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.datepicker.*
+import com.google.android.material.datepicker.CalendarConstraints.DateValidator
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class DateSelectionFragment :
     BaseFragment<FragmentDateSelectionBinding>(FragmentDateSelectionBinding::inflate) {
@@ -28,13 +28,19 @@ class DateSelectionFragment :
     }
 
     private fun initDataPicker() {
-        val constraintsBuilder = CalendarConstraints.Builder()
-            .setValidator(DateValidatorPointForward.from(MINIMUM_DATE_FOR_PICTURE))
+        val constraintsBuilderRange = CalendarConstraints.Builder()
+        val dateValidatorMin: DateValidator = DateValidatorPointForward.from(MINIMUM_DATE_FOR_PICTURE)
+        val dateValidatorMax: DateValidator = DateValidatorPointBackward.before(System.currentTimeMillis())
+        val listValidators = ArrayList<DateValidator>()
+        listValidators.add(dateValidatorMin)
+        listValidators.add(dateValidatorMax)
+        val validators = CompositeDateValidator.allOf(listValidators)
+        constraintsBuilderRange.setValidator(validators)
 
         val datePicker = MaterialDatePicker.Builder.datePicker()
             .setTitleText(R.string.selected_date)
             .setInputMode(MaterialDatePicker.INPUT_MODE_CALENDAR)
-            .setCalendarConstraints(constraintsBuilder.build())
+            .setCalendarConstraints(constraintsBuilderRange.build())
             .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
             .build()
 
