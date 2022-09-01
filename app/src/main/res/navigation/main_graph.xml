@@ -23,20 +23,8 @@
         android:name="com.elephant.spaceimage.ui.screens.picture_day.PictureDayFragment"
         android:label="PictureDayFragment"
         tools:layout="@layout/fragment_picture_day">
-        <action
-            android:id="@+id/action_pictureDayFragment_to_descriptionPictureFragment"
-            app:destination="@id/descriptionPictureFragment"
-            app:enterAnim="@anim/slide_left"
-            app:exitAnim="@anim/wait_anim"
-            app:popEnterAnim="@anim/wait_anim"
-            app:popExitAnim="@anim/slide_right" />
         <argument
             android:name="choice_date"
             app:argType="string" />
     </fragment>
-    <fragment
-        android:id="@+id/descriptionPictureFragment"
-        android:name="com.elephant.spaceimage.ui.screens.description_picture.DescriptionPictureFragment"
-        android:label="DescriptionPictureFragment"
-        tools:layout="@layout/fragment_description_picture" />
 </navigation>

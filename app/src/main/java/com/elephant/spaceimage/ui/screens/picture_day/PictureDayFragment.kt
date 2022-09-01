@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -25,6 +26,7 @@ import com.elephant.spaceimage.R
 import com.elephant.spaceimage.databinding.FragmentPictureDayBinding
 import com.elephant.spaceimage.ui.screens.base.BaseFragment
 import com.elephant.spaceimage.utils.viewModelCreator
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import java.io.ByteArrayOutputStream
 
 class PictureDayFragment :
@@ -105,12 +107,18 @@ class PictureDayFragment :
         }
     }
 
+    private fun initBottomSheetDialog() {
+        val bottomSheet = BottomSheet()
+        bottomSheet.show(requireActivity().supportFragmentManager,BottomSheet.TAG)
+    }
+
     private fun initObservers() {
         viewModel.state.observe(viewLifecycleOwner) { state ->
             if (state.isLoadingError) {
                 binding.progressBar.isVisible = false
                 binding.refreshBtn.isVisible = true
             }
+            if (state.isLoading) initBottomSheetDialog()
             if (state.isLoading && state.mediaType == "image") {
                 initPictureForGlide(state.url)
             }
