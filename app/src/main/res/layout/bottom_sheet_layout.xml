@@ -1,47 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f6f6fa"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="0dp"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/bottom_sheet_line"
-        android:layout_width="25dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:background="#663b4351"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/bottom_sheet_description_header"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textColor="#000"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"
-        tools:text="Two Clusters and a Comet" />
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/_30sdp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <TextView
-        android:id="@+id/bottom_sheet_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_description_header"
-        tools:text="This lovely starfield spans some four full moons." />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:background="@drawable/background_gradient_splash"
+            android:gravity="center"
+            android:textColor="@color/text_splash"
+            tools:text="Шапка" />
+
+        <TextView
+            android:id="@+id/description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_gradient_splash_for_bottom_sheet"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/white"
+            tools:text="Какое-то описание картинки" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

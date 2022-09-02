@@ -10,11 +10,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -27,6 +28,8 @@ import com.elephant.spaceimage.databinding.FragmentPictureDayBinding
 import com.elephant.spaceimage.ui.screens.base.BaseFragment
 import com.elephant.spaceimage.utils.viewModelCreator
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.io.ByteArrayOutputStream
 
 class PictureDayFragment :
@@ -108,8 +111,12 @@ class PictureDayFragment :
     }
 
     private fun initBottomSheetDialog() {
-        val bottomSheet = BottomSheet()
-        bottomSheet.show(requireActivity().supportFragmentManager,BottomSheet.TAG)
+        binding.include.bottomSheet.isVisible = true
+        BottomSheetBehavior.from(binding.include.bottomSheet)
+        with(binding.include) {
+            titleTv.text = viewModel.state.value!!.title
+            descriptionTv.text = viewModel.state.value!!.description
+        }
     }
 
     private fun initObservers() {
@@ -186,7 +193,7 @@ class PictureDayFragment :
                 Toast.LENGTH_SHORT
             ).show()
         } else {
-            AlertDialog.Builder(requireContext())
+            MaterialAlertDialogBuilder(requireActivity())
                 .setTitle(R.string.permission_denied)
                 .setMessage(R.string.permission_denied_forever_message)
                 .setPositiveButton(R.string.open) { _, _ ->
